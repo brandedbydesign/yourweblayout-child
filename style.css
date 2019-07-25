@@ -1,0 +1,1859 @@
+/*
+ Theme Name:   Your Web Layout Child
+ Theme URI:    http://inmotionwebdesigns.com
+ Description:  Your Web Layout Child Theme
+ Author:       Design Services
+ Author URI:   http://yourweblayout.com
+ Template:     yourweblayout
+ Version:      1.3.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  yourweblayout-child
+
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS: 
+----------------------------------------------------------------
+1.0 Bootstrap
+	1.1 Adjustments
+
+2.0	Underscores
+	2.1 Elements
+	2.2 Accessibility
+	2.3 Alignments
+	2.4 Clearings
+
+3.0 Your Web Layout
+	3.1 Typography
+	3.2 Background
+	3.3 Header
+	3.4 Navigation
+	3.5 Contentog
+	3.6 Sidebar
+	3.7 Footer
+	3.8 Custom
+	3.9 WooCommerce
+	3.9.5 Blog
+
+4.0 Media Queries
+	4.1 xs
+	4.2 sm
+	4.3 md
+	4.4 lg
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 Bootstrap
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.1 Adjustments
+--------------------------------------------------------------*/
+/* If they insist, disable responsiveness thusly
+ * @link http: //getbootstrap.com/getting-started/#disable-responsive
+ *
+ * 1. Replace all col classes (col-lg, col-md, col-sm) with col-xs
+ * 2. Remove all navbar collapsing and expanding behavior
+ * 3. Uncomment css below to override container width
+ */
+
+/*
+.container {
+	width: 970 !important;
+}
+
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+	.container {
+		width: 970px;
+	}
+}
+
+@media (min-width: 992px) {
+	.container {
+		width: 970px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container {
+		width: 970px;
+	}
+}
+*/
+
+/*--------------------------------------------------------------
+2.0	Underscores
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+2.1 Elements
+--------------------------------------------------------------*/
+img {
+	height: auto; /* Make sure images are scaled correctly */
+	max-width: 100%; /* Adhere to container width */
+}
+
+figcaption {
+	font-size: 16px;
+	margin-bottom: 20px;
+	margin-top: 5px;
+}
+
+/* Make sure elements fit their containers */
+embed,
+iframe,
+object,
+.wp-caption,
+.widget select {
+	max-width: 100%;
+}
+
+/* Required by WordPress theme check */
+.sticky,
+.bypostauthor,
+.gallery-caption,
+.wp-caption-text {
+}
+
+/*--------------------------------------------------------------
+2.2 Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar */
+}
+
+/*--------------------------------------------------------------
+2.3 Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+}
+
+/*--------------------------------------------------------------
+2.4 Clearings
+--------------------------------------------------------------*/
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	content: "";
+	display: table;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	clear: both;
+}
+
+/*--------------------------------------------------------------
+3.0 Your Web Layout
+--------------------------------------------------------------*/
+/* this removes the anchor tags around images and text when printing a webpage */
+@media print {
+	a[href]:after {
+		content: "";
+	}
+}
+
+/*--------------------------------------------------------------
+3.1 Typography
+--------------------------------------------------------------*/
+body {
+	color: #333;
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 25px;
+	text-rendering: optimizeLegibility;
+}
+
+h1,
+.h1,
+h2,
+h3,
+h4 {
+	color: #14253e;
+}
+
+h1,
+.h1,
+h2, 
+h3 {
+	font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+	font-size: 30px;
+	line-height: 39px;
+}
+
+h2 {
+	font-size: 26px;
+	line-height: 34px;
+}
+
+h3 {
+	font-size: 22px;
+	line-height: 30px;
+}
+
+h4 {
+	font-size: 20px;
+	line-height: 26px;
+}
+
+p {
+	margin-bottom: 20px;
+}
+
+a,
+a:hover, 
+a:visited,
+a:focus {
+	color: #14253e;	
+}
+
+/*this hides the dotted border that appears on menu items when active */
+a:focus {
+	outline: none;
+}
+
+.btn-primary,
+.btn-primary:visited {
+	background: #14253e;
+	border: 3px solid #14253e;
+	border-radius: 0;
+	/*box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset, 0 1px 0 #990000;*/
+	color: #f1f1f1;
+	display: inline-block;
+	margin: 20px 0;
+	padding: 8px 35px;
+	transition: all .5s;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+	background: #f1f1f1;
+	border: 3px solid #f1f1f1;
+	color: #14253e;
+	text-decoration: none;
+}
+
+.btn-secondary,
+.btn-secondary:visited {
+	background: #f1f1f1;
+	border: 3px solid #f1f1f1;
+	border-radius: 0;
+	color: #14253e;
+	display: inline-block;
+	margin: 20px 0;
+	padding: 8px 35px;
+	transition: all .5s;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+	background: #14253e;
+	border: 3px solid #14253e;
+	color: #f1f1f1;
+	text-decoration: none;
+}
+
+ul {
+	padding-left: 20px;
+}
+
+/* xs */
+@media (min-width: 576px) {
+
+}
+
+/* sm */
+@media (min-width: 768px) {
+
+}
+
+/* md */
+@media (min-width: 992px) {
+
+}
+
+/* lg */
+@media (min-width: 1200px) {
+
+}
+
+/*--------------------------------------------------------------
+3.2 Background
+--------------------------------------------------------------*/
+body,
+.site-content {
+	background: #fff;
+}
+
+.pre-header {
+	background: #14253e;
+	padding: 10px 0;
+}
+
+.site-header {
+	background: #fff;
+	position: relative;
+	z-index: 2;
+}
+
+#site-navigation,
+.navbar-default {
+	background: #f1f1f1;
+}
+
+.site-content > .container {
+	background: #fff;
+}
+
+.site-footer {
+	background: #14253e;
+}
+
+.attribution {
+	background: #cacaca;
+	padding: 10px 0;
+}
+
+/*------------------------------------------------------------
+Scroll Header
+-------------------------------------------------------------*/
+.scroll-header {
+	background: #fff;
+}
+
+.scroll-header #site-navigation {
+	background: transparent;
+}
+
+/* keeps styling on top button after it's clicked on */
+.scroll-header {
+	top: 0;
+	color: #191919;
+	display: none;
+	position: fixed;
+	right: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+/*.admin-bar .scroll-header {
+	top: 46px;
+}*/
+
+
+/* sm */
+@media (min-width: 768px) {
+	.admin-bar .scroll-header {
+		top: 46px;
+	}
+}
+
+/* md */
+@media (min-width: 992px) {
+	.admin-bar .scroll-header {
+		top: 32px;
+	}
+}
+
+/*--------------------------------------------------------------
+3.3 Header
+--------------------------------------------------------------*/
+#logo,
+.header-scroll-logo {
+	margin-bottom: 10px;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.pre-header {
+
+}
+
+.preheader-left {
+
+}
+
+.preheader-right {
+
+}
+
+.preheader-left {
+
+}
+
+.header-right {
+
+}
+
+/* xs */
+@media (min-width: 576px) {
+
+}
+
+/* sm */
+@media (min-width: 768px) {
+}
+
+/* md */
+@media (min-width: 992px) {
+	#logo,
+	.header-scroll-logo {
+		text-align: left;
+	}
+	
+}
+
+/* lg */
+@media (min-width: 1200px) {
+	
+}
+
+/*--------------------------------------------------------------
+3.4 Navigation
+--------------------------------------------------------------*/
+/* Primary nav */
+.navbar {
+	border: none;
+	border-radius: 0;
+	min-height: 30px;
+}
+
+.navbar-default .navbar-nav {
+	margin-left: -15px;
+}
+
+.navbar-default .navbar-nav > li {
+	list-style-type: none;
+	padding: 10px 15px;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #14253e;
+	font-size: 16px;
+	padding: 10px 0;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+	background-color: transparent;
+	color: #666;
+	text-decoration: none;
+}
+
+.navbar.navbar-nav .sub-arrow, 
+.navbar.navbar-nav .collapsible .sub-arrow {
+	margin-left: 1px;
+}
+
+/* Secondary nav 
+#secondary-nav .nav > li > a,
+#secondary-nav .nav > li > a:hover,
+#secondary-nav .nav > li > a:focus,
+#secondary-nav .nav > li.active > a,
+#secondary-nav .nav > li.active > a:hover,
+#secondary-nav .nav > li.active > a:focus {
+	background: transparent;
+}
+
+#secondary-nav .nav > li > a {
+	color: #14253e;
+}
+
+#secondary-nav .nav > li > a:hover,
+#secondary-nav .nav > li > a:focus,
+#secondary-nav .nav > li.active > a,
+#secondary-nav .nav > li.active > a:hover,
+#secondary-nav .nav > li.active > a:focus {
+	color: #14253e;
+}
+
+.nav-pills > li {
+	float: none;
+}*/
+
+/* sm */
+@media (min-width: 768px) {
+	.navbar-default .navbar-nav > li {
+		padding: 10px 12px;
+	}
+	
+	.nav-pills > li {
+		/*float: left;*/
+	}
+	
+	/* next 2 rules center main navigation */
+	.navbar .navbar-nav {
+		display: inline-block;
+		float: none;
+	}
+	
+	.navbar .navbar-collapse {
+		text-align: center;
+	}
+}
+
+/* md */
+@media (min-width: 992px) {
+	.navbar-default .navbar-nav > li {
+		padding: 10px 16px;
+	}
+	
+	/*makes header menu float right
+	.navbar-default .navbar-nav {
+		float: right;
+	}
+	
+	.navbar-default .navbar-nav > li:last-child a {
+		padding-right: 0;
+	}*/
+	
+	/*makes footer menu float right
+	#secondary-nav .nav-pills {
+		float: right;
+	}*/	
+}
+
+/* use below to change the navbar collapse breakpoint for sites with a lot of items in the navigation
+@media (max-width: 992px) {
+	.navbar-header {
+		float: none;
+	}
+	
+	.navbar-left,
+	.navbar-right {
+		float: none !important;
+	}
+	
+	.navbar-toggle {
+		display: block;
+	}
+	
+	.navbar-collapse {
+		border-top: 1px solid transparent;
+		box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+	}
+	
+	.navbar-fixed-top {
+		border-width: 0 0 1px;
+		top: 0;
+	}
+	
+	.navbar-collapse.collapse {
+		display: none!important;
+	}
+	
+	.navbar-nav {
+		float: none!important;
+		margin-top: 7.5px;
+	}
+	
+	.navbar-nav > li {
+		float: none;
+	}
+	
+	.navbar-nav > li > a {
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
+	
+	.collapse.in{
+		display: block !important;
+		overflow-y: auto !important;
+	}
+	
+	.dropdown-menu {
+		box-shadow: none;
+		border: none;
+		float: none;
+		position: relative;
+	}
+}*/
+
+/* lg */
+@media (min-width: 1200px) {	
+
+}
+
+/* ------------------------------------------------------------------------------
+Animates the underline of the main navigation items 
+--------------------------------------------------------------------------------*/
+.navbar-default .navbar-nav > li > a {
+	color: #14253e;/* need for animated underline */
+	position: relative;/* need for animated underline */
+	text-decoration: none;/* need for animated underline */
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+	color: #666;
+}
+
+.navbar-default .navbar-nav > li > a:before {
+	background-color: #14253e;
+	bottom: 0;
+	content: "";
+	height: 1px;
+	left: 0;
+	position: absolute;
+	visibility: hidden;
+	width: 100%;
+	-webkit-transform: scaleX(0);
+	transform: scaleX(0);
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+
+.navbar-default .navbar-nav > li > a:hover:before {
+	visibility: visible;
+	-webkit-transform: scaleX(1);
+	transform: scaleX(1);
+}
+
+/* ------------------------------------------------------------------------------
+Animates the underline of the main navigation items after scrolling down
+--------------------------------------------------------------------------------*/
+.scroll-header .navbar-default .navbar-nav > li > a {
+	color: #14253e;/* need for animated underline */
+	position: relative;/* need for animated underline */
+	text-decoration: none;/* need for animated underline */
+}
+
+.scroll-header .navbar-default .navbar-nav > li > a:hover {
+	color: #666;
+}
+
+.scroll-header .navbar-default .navbar-nav > li > a:before {
+	background-color: #14253e;
+	bottom: 0;
+	content: "";
+	height: 1px;
+	left: 0;
+	position: absolute;
+	visibility: hidden;
+	width: 100%;
+	-webkit-transform: scaleX(0);
+	transform: scaleX(0);
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+
+.scroll-header .navbar-default .navbar-nav > li > a:hover:before {
+	visibility: visible;
+	-webkit-transform: scaleX(1);
+	transform: scaleX(1);
+}
+
+/*-------------------------------------------------------------
+		Hamburger Menu 
+--------------------------------------------------------------*/
+/*edit to length you need to remove vertical scroll on mobile view*/
+.navbar-collapse {
+	max-height: 600px;
+}
+
+/* removes grey top border on mobile devices */
+.navbar-default .navbar-collapse, 
+.navbar-default .navbar-form {
+	border: 0 none;
+}
+
+/*styles for hamburger toggle */
+.navbar-default .navbar-toggle {
+	background-color: #fff;
+	border: 1px solid #14253e;
+	float: right;
+	margin-bottom: 8px;
+	margin-right: 15px;
+	margin-top: 8px;
+	padding: 9px 10px;
+	position: relative;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+	background-color: #14253e;
+	border-color: #fff;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #14253e;
+	border-radius: 1px;
+	display: block;
+	height: 2px;
+	width: 22px;
+}
+
+.navbar-default .navbar-toggle:hover .icon-bar, 
+.navbar-default .navbar-toggle:focus .icon-bar {
+	background-color: #fff;
+}
+
+/* ------------------------------------------------------
+                          Drop down menu
+-------------------------------------------------------- */
+.dropdown-menu {
+	background-color: rgba(241, 241, 241, 0.9);
+	/*border: 0;
+	border-radius: 0;
+	box-shadow: 0;*/
+	min-width: 160px;
+	padding: 5px 20px;
+	/*position: absolute;
+	top: 100%;
+	z-index: 1000;*/
+}
+
+.dropdown-menu > li {
+	padding: 5px 3px;
+	text-align: left;
+}
+
+/* Below 3 rules needed to prevent the weird on-click styling of the pages in the dropdown menu */
+.dropdown-menu > li > a,
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    /*clear: both;*/
+    color: #14253e;
+    /*display: inline-block;*/
+    line-height: 1.25;
+    padding: 3px;
+    /*white-space: nowrap;*/
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+	background-color: transparent;
+	color: #666;
+	/*text-decoration: none;*/
+}
+
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a, 
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, 
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+	background-color: transparent;
+	color: #666;
+	outline: 0;
+	/*text-decoration: none;*/
+}
+
+/*This allows you to set the background color for the active sub-menu item when you mouse off it to click on it's sub-menu item*/
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+	background-color: transparent;
+	border-color: #14253e;
+}
+
+.site-header .caret {
+	display: none;
+}
+
+/* sm */
+@media (min-width: 768px) {
+	
+}
+
+/* md */
+@media (min-width: 992px) {
+	
+}
+
+/* lg */
+@media (min-width: 1200px) {
+	
+}
+
+/*--------------------------------------------------------------
+3.5 Content
+--------------------------------------------------------------*/
+.home .entry-title  {
+	/*display: none;*/
+}
+
+.entry-title {
+
+}
+
+.home .entry-content {
+
+}
+
+.entry-content {
+	padding-bottom: 25px;
+}
+
+.entry-content li {
+	margin-bottom: 5px;
+}
+
+.entry-footer {
+
+}
+
+/* sm */
+@media (min-width: 768px) {
+	
+}
+
+/* md */
+@media (min-width: 992px) {	
+	
+}
+
+/* lg */
+@media (min-width: 1200px) {
+	
+}
+
+/*--------------------------------------------------------------
+3.6 Sidebar
+--------------------------------------------------------------*/
+.widget-area {
+
+}
+
+.widget-title {
+
+}
+
+/*--------------------------------------------------------------
+3.7 Footer
+--------------------------------------------------------------*/
+.attribution,
+.footer-social {
+	text-align: center;
+}
+
+.attribution {
+	bottom: 0;
+	margin-top: 0;
+	position: absolute;
+	width: 100%;
+}
+
+.attribution p,
+.attribution a {
+	color: #14253e;
+	font-size: 12px;
+}
+
+.attribution p {
+	margin-bottom: 0;
+}
+
+.footer-col-1,
+.footer-col-2,
+.footer-col-3 {
+	color: #fff;
+	font-size: 14px;
+}
+
+.footer-col-1 h2 {
+	color: #fff;
+	font-size: 20px;
+}
+
+.footer-col-2,
+.footer-col-3 {
+	margin-top: 60px;
+}
+
+.fa-youtube,
+.fa-linkedin {
+	color: #fff;
+	font-size: 20px;
+}
+
+.fa-youtube {
+	margin-right: 35px;
+}
+
+.footer-social {
+	margin-bottom: 15px;
+	text-align: right;
+}
+
+#footer-navigation {
+	display: none;
+}
+
+/* sm */
+@media (min-width: 768px) {
+
+}
+
+/* md */
+@media (min-width: 992px) {
+	
+	/* Sticky footer - @link http: //mystrd.at/modern-clean-css-sticky-footer/ */
+	html {
+		min-height: 100%;
+		position: relative;
+	}
+	
+	body {
+		margin: 0 0 200px; /* = .site-footer height */
+	}
+	
+	.site-footer {
+		bottom: 0;
+		height: 200px; /* = body margin-bottom */
+		left: 0;
+		position: absolute; /* replace with position: fixed; to keep footer fixed to bottom of browser - see footer file too! */
+		width: 100%;
+	}
+}
+
+/* lg */
+@media (min-width: 1200px) {
+	
+}
+
+/*--------------------------------------------------------------
+3.8 Metaslider & Leaderboard
+--------------------------------------------------------------*/
+.leaderboard-image {
+	margin-bottom: 10px;
+	position: relative;
+	z-index: 1;
+}
+
+.leaderboard-image img {
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+.metaslider {
+	margin-bottom: 10px;
+}
+
+/*.site-content .metaslider .caption {
+	display: none;
+}*/
+
+/* Hides Nivo Slider caption on cell phones */
+.metaslider .theme-default .nivoSlider > .nivo-caption {
+	background-color: rgba(255, 255, 255, 0.0);
+	display: none !important;
+	left: 0;
+	opacity: 1.0;
+	padding: 5px 10px;
+	position: absolute;
+	text-align: left;
+	top: 50px;
+	width: 100%;
+}
+
+.metaslider .theme-default .nivoSlider > .nivo-caption h2 {
+	color: #14253e;
+}
+
+.metaslider .theme-default .nivoSlider > .nivo-caption h3 {
+	
+}
+
+.metaslider .theme-default .nivoSlider > .nivo-caption div {
+	display: inline-block;
+	margin: 20px 0;
+}
+
+.metaslider .theme-default .nivoSlider > .nivo-caption a.btn-primary,
+.metaslider .theme-default .nivoSlider > .nivo-caption a.btn-primary:visited {
+	background: #14253e;
+	border: 3px solid #14253e;
+	border-radius: 0;
+	color: #fff;
+	display: inline-block;
+	margin: 20px 0;
+	padding: 8px 35px;
+	transition: all .5s;
+}
+
+.metaslider .theme-default .nivoSlider > .nivo-caption a.btn-primary:hover,
+.metaslider .theme-default .nivoSlider > .nivo-caption a.btn-primary:focus {
+	background: #fff;
+	border: 3px solid #fff;
+	color: #14253e;
+	text-decoration: none;
+}
+
+/* sm */
+@media (min-width: 768px) {
+	.leaderboard-image {
+		/*margin-bottom: -125px;
+		top: -125px;*/
+	}
+	
+	.metaslider {
+		/*margin-bottom: 10px;
+		margin-bottom: -125px;
+		top: -125px;*/
+	}
+	
+	
+	/*.metaslider .caption-wrap {
+		background: rgba(116, 20, 48, 0.75);
+		bottom: 0;
+		color: white;
+		display: block;
+		font-size: 24px;
+		left: 0;
+		line-height: 1.4em;
+		margin: 0;
+		opacity: 0.7;
+		position: absolute;
+		text-align: center;
+		text-transform: uppercase;
+		width: 100%;
+	}
+	
+	.site-content .metaslider .caption {
+		background: rgba(116, 20, 48, 0.75);
+		display:block;
+		padding: 15px 10px;
+	}*/
+	
+	/* Display Nivo Slider caption on sm/md/lg devices */
+	.metaslider .theme-default .nivoSlider > .nivo-caption {
+		display: block !important;
+	}
+}
+
+/* md */
+@media (min-width: 992px) {
+	/*.metaslider .caption-wrap {
+		font-size: 24px;
+		line-height: 1.4em;
+	}*/
+}
+
+/* lg */
+@media (min-width: 1200px) {
+	
+}
+
+/*--------------------------------------------------------------
+3.8 Custom
+--------------------------------------------------------------*/
+.edit-link {
+	display: none;
+}
+
+.mb-30 {
+	margin-bottom: 30px;
+}
+
+.mb-60 {
+	margin-bottom: 60px;
+}
+
+.mt-30 {
+	margin-top: 30px;
+}
+
+.mt-60 {
+	margin-top: 60px;
+}
+
+iframe {
+	border: 0;
+}
+
+/*responsive iframe next 2 rules 
+.iframe-container {
+    margin-bottom: 20px;
+	position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+    height: 0;
+    overflow: hidden;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}*/
+
+/* Back to top button - next 3 rules*/
+.svg-inline--fa.fa-w-10 {
+	width: 100%;
+}
+
+/* keeps styling on top button after it's clicked on */
+.topbutton,
+.topbutton:visited,
+.topbutton:active, 
+.topbutton:focus {
+    background: #14253e;
+	border: 1px solid #14253e;
+	border-radius: 5px;
+    bottom: 90px;
+	color: #fff;
+    display: none;
+	font-size: 33px;
+	height: 40px;
+    position: fixed;
+    right: 5px;
+    width: 40px;
+    z-index: 1;
+}
+
+.topbutton:hover {
+    background: #fff;
+	border: 1px solid #fff;
+	color: #14253e;
+}
+
+.fa-angle-up {
+	padding: 0 8px;
+}
+
+
+
+/* https://css-tricks.com/snippets/css/monotone-image-css/ 
+.filtered {
+   background: #00c2ff;
+}
+
+.filtered img {
+  mix-blend-mode: screen;
+  -webkit-filter: grayscale(100%) contrast(200%);
+  filter: grayscale(100%) contrast(200%);
+  opacity: 1;
+}
+
+.filtered,
+.not-filtered {
+  float: left;
+  max-width: 50%;
+  border: 10px solid white;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+*/
+
+
+
+/* Turns color photos to black and white and back on hover 
+img.desaturate { 	
+	filter: grayscale(100%); 
+}
+
+img:hover.desaturate { 	
+	filter: grayscale(30%); 
+}*/
+
+/*  tininted images on hover 
+.tint {
+	border-radius: 50%;
+	cursor: pointer;
+	display: block;
+	position: relative;
+}
+
+.tint:before {
+	background: rgba(0, 0, 0, 0.5);
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	transition: all .3s linear;
+	z-index: 2;
+}
+
+.tint:hover:before {
+	background: none; 
+}*/
+
+/* list items with bullets different color from list item 
+ul.color-bull {
+	color: #1a1a1a;
+	padding-left: 0;
+}
+
+ul.color-bull li:hover {
+	color: #4770d8;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+ul.color-bull li {
+	list-style-type: none;
+	margin-bottom: 8px;
+}
+	
+ul.color-bull li:before {
+	content: '';
+    background-color: #4770d8;
+    display: inline-block;
+    position: relative;
+    height: 7px;
+    width: 7px;
+    border-radius: 6px;
+    background-clip: padding-box;
+    margin-right: 4px;
+    top: 0;
+}
+ 
+ul.color-bull li:hover::before {
+    background-color: #f0c65e;
+}*/
+
+
+/*this adds plus or minus sign to the left of collapsibles 
+.panel-title a.collapsed::before {
+    content: "+";
+}
+
+.panel-title a::before {
+    content: "-";
+    display: inline-block;
+    padding-right: 10px;
+    text-decoration: none;
+    width: 25px;
+}*/
+
+/* this styles blockquotes for testimonials - next two rules 
+blockquote {
+	border-bottom: 1px solid #990000;
+	box-shadow: 3px 1px 5px #aeaeae;
+	border-left: 5px solid #990000;
+}
+
+blockquote footer {
+	color: #990000;
+	font-style: italic;
+} */
+
+
+/* sm */
+@media (min-width: 768px) {
+
+}
+
+/* md */
+@media (min-width: 992px) {
+
+}
+
+/* lg */
+@media (min-width: 1200px) {
+	
+}
+
+/*--------------------------------------------------------------
+ Borders
+--------------------------------------------------------------*/
+
+/* code to center heading and wrap with double or triple stacked lines 
+h2 {
+	color: #051125;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: 400;
+}
+
+.line {
+	overflow: hidden;
+	text-align: center;
+}
+
+.line:before {
+	margin-left: -50%;
+	right: 0.5em;
+}
+
+.line:after {
+	margin-right: -50%;
+	left: 0.5em;
+}
+
+.single-line:before,
+.single-line:after {
+	background-color: #19b9db;
+	content: "";
+	display: inline-block;
+	height: 4px;
+	position: relative;
+	vertical-align: middle;
+	width: 50%;
+}
+
+.double-line:before,
+.double-line:after {
+	border-top: 4px solid #19b9db;
+	border-bottom: 4px solid #117f96;
+	content: "";
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+	width: 50%;
+}
+
+.triple-line:before,
+.triple-line:after {
+	background-color:	#094551;
+	border-top: 4px solid #19b9db;
+	border-bottom: 4px solid #117f96;
+	content: "";
+	display: inline-block;
+	height: 4px;
+	position: relative;
+	vertical-align: middle;
+	width: 50%;
+}*/
+
+/*--------------------------------------------------------------
+3.9.5 Blog
+-------------------------------------------------------------- 
+.entry-meta {
+	margin-bottom: 20px;
+}
+
+.updated {
+	display: none;
+}
+
+.attachment-post-thumbnail {
+	border: 0 solid #000;
+	float: left;
+	margin-bottom: 15px;
+	margin-right: 20px;
+	max-width: 265px;
+}
+
+.blog article,
+.archive article,
+.search article {
+	clear: both;
+	content: "";
+	display: table;
+}
+
+a.moretag {
+	display: block;
+	margin-top: 20px;
+	text-decoration: underline;
+}
+
+.entry-footer {
+	font-size: 13px;
+	font-style: italic;
+}
+
+.nav-links {
+	display: block;
+}
+
+.nav-next,
+.nav-previous {
+	background: #14253e;
+	border-radius: 3px;
+	margin: 10px 0 20px;
+	padding: 5px 10px;
+}
+
+.nav-next {
+	float: right;
+}
+
+.nav-previous {
+	float: left;
+}
+
+.nav-next a,
+.nav-previous a {
+	color: #fff;
+}
+
+.search-form {
+	margin-bottom: 20px;
+	margin-top: 20px;
+}*/
+
+/* Alternate search bar for blog(need both rules below) 
+button.search-submit {
+	background-color: transparent;
+	border: 0 solid #14253e;
+	border-radius: 0;
+	color: #14253e;
+	font-family: FontAwesome;
+	font-size: 16px;
+	line-height: 25px;
+	padding: 2px 10px 4px 10px;
+}
+
+input[type="search"] {
+	border: 1px solid #14253e;
+	font-size: 16px;
+	line-height: 29px;
+	padding: 1px 0 1px 5px;
+} */
+
+/* This places the "Leave a Reply" & "Comments" headings go below next/prev post instead of next to it 
+#reply-title,
+#comments {
+	clear: both;
+}*/
+
+/* This places the label for the reply field of the comment box above the box instead of next to it
+.comment-form-comment label {
+	display: block;
+} */
+
+/* Style for "Post Comment" button 
+button, 
+html input[type="button"], 
+input[type="reset"], 
+input[type="submit"] {
+	background: #14253e;
+	border: 1px solid #14253e;
+	border-radius: 3px;
+	color: #fff;
+	-webkit-appearance: button;
+	cursor: pointer;
+	margin: 10px 0 20px;
+	padding: 5px 10px;
+}
+
+button:hover, 
+html input:hover[type="button"], 
+input:hover[type="reset"], 
+input:hover[type="submit"] {
+	opacity: 7.0;
+	text-decoration: underline;
+}  */
+
+/* sm */
+@media (min-width: 768px) {
+	
+}
+
+/* md */
+@media (min-width: 992px) {
+	
+}
+
+/* lg */
+@media (min-width: 1200px) {
+	
+}
+
+
+/*------------------------------------------------------------------
+ Content Views
+-------------------------------------------------------------------
+.pt-cv-content-item {
+	background: #fff;
+	box-shadow: 1px 3px 5px #c6c6c6;
+	padding: 0;
+}
+
+.pt-cv-view .pt-cv-ifield {
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+.pt-cv-thumbnail {
+	margin-bottom: 0 !important;
+}
+
+.pt-cv-thumbnail.pull-left {
+	margin-right: 30px !important;
+}
+
+h4.pt-cv-title a {
+	color: #990000;
+	display: inline-block;
+	font-size: 22px;
+	margin-top: 30px;
+}
+
+.pt-cv-content {
+	font-size: 16px;
+	padding-right: 30px;
+}
+
+.pt-cv-wrapper .btn-success {
+	color: #fff;
+	background-color: #990000;
+	border-color: #990000;
+	border-radius: 3px;
+	font-size: 18px;
+	font-weight: 600;
+	padding: 0;
+	text-transform: uppercase;
+}
+
+.pt-cv-wrapper .btn-success:hover,
+.pt-cv-wrapper .btn-success:focus {
+	color: #fff;
+	background-color: #990000;
+	border-color: #990000;
+}
+
+.pt-cv-wrapper .btn-success:after {
+	content: " >>";
+}
+
+.pt-cv-meta-fields {
+	color: #000;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.pt-cv-meta-fields a {
+	color: #990000;
+} */
+
+/* Calendar widget in sidebar 
+#calendar_wrap {
+	background: #e8e8e8;
+	padding: 10px;
+}
+
+#wp-calendar {
+	background: #fff;
+	border: 1px solid #999;
+	width: 100%;
+}
+
+#wp-calendar th,
+#wp-calendar td {
+	text-align: center;
+}
+
+#wp-calendar td {
+	border-top: 1px solid #999;
+}
+
+#wp-calendar td {
+	border-right: 1px solid #999;
+}
+
+#wp-calendar td:last-child {
+	border-right: 0;
+}
+
+#wp-calendar td#prev,
+#wp-calendar td#next,
+#wp-calendar td.pad {
+	border-right: 0;
+}*/
+
+/*-------------------------------------------------------
+Ninja Form 3.0.5
+--------------------------------------------------------*/
+.nf-form-title {
+	display: none;
+}
+
+.nf-form-fields-required {
+	/*display:none;*/
+	margin-bottom: 15px;
+}
+
+.nf-form-content .field-wrap .nf-field-label label,
+.nf-form-content .list-radio-wrap .nf-field-element li label, 
+.nf-form-content .list-checkbox-wrap .nf-field-element li label {
+	font-weight: 300;
+}
+
+.nf-field-container.label-above {
+	margin-bottom: 10px;
+}
+
+.nf-field-container.label-above .nf-field-label {
+	margin-bottom: 3px;
+}
+
+/*.nf-form-content button, 
+.nf-form-content input[type="button"], 
+.nf-form-content input[type="submit"] {
+	background: #333;
+	border: 0;
+	color: #f7f7f7;
+	transition: all .5s;
+}
+
+.nf-form-content .listselect-wrap .nf-field-element div, 
+.nf-form-content input.ninja-forms-field, 
+.nf-form-content select.ninja-forms-field:not([multiple]) {
+	height: 50px;
+}*/
+
+.nf-form-content .field-wrap input[type="submit"], 
+.nf-form-content .field-wrap input[type="button"], 
+.nf-form-content .field-wrap button {
+	background: #14253e;
+	border: 3px solid #14253e;
+	border-radius: 0;
+	color: #f1f1f1;
+	display: inline-block;
+	margin: 20px 0;
+	padding: 8px 35px;
+	transition: all .5s;
+}
+
+.nf-form-content .field-wrap:hover input[type="submit"], 
+.nf-form-content .field-wrap:hover input[type="button"], 
+.nf-form-content .field-wrap:hover button {
+	background: #f1f1f1;
+	border: 3px solid #f1f1f1;
+	color: #14253e;
+	text-decoration: none;
+}
+
+.nf-form-content .textarea-wrap textarea {
+	max-height: 130px;
+}
+
+/*--------------------------------------------------------------
+TablePress
+---------------------------------------------------------------
+.entry-content .tablepress {
+	border: 1px solid #ddd;
+	margin-bottom: 50px;
+}
+
+.entry-content .tablepress thead th {
+	color: #fff;
+	font-weight: 300;
+}
+
+.entry-content .tablepress thead th:nth-child(1) {
+	background-color: #341534;
+}
+
+.entry-content .tablepress thead th:nth-child(2) {
+	background-color: #512851;
+}
+
+.entry-content .tablepress thead th:nth-child(3) {
+	background-color: #683d68;
+}
+
+.entry-content .tablepress thead th:nth-child(4) {
+	background-color: #835683;
+}
+
+.entry-content .tablepress thead th:nth-child(5) {
+	background-color: #9c6f9c;
+}
+
+.entry-content .tablepress thead th:nth-child(6) {
+	background-color: #b38ab3;
+}
+
+.entry-content .tablepress tbody td, 
+.entry-content .tablepress tfoot th {
+	border-top: 0px solid #ddd;
+	font-size: 14px;
+}
+
+.entry-content .tablepress tbody td + td {
+	border-left: 1px solid #ddd;
+}
+
+.entry-content .tablepress caption {
+	display: none;
+}*/
+
+
+/*--------------------------------------------------------------
+MailChimp
+---------------------------------------------------------------
+.mailchimp-section {
+	background: url(images/email-signup-bg-img.jpg) no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	margin-bottom: 30px;
+	padding: 20px 10px;
+}
+
+
+#mc_embed_signup {
+	border-radius: 10px;
+	margin-top: 20px;
+	padding: 10px;
+	text-align: center;
+}
+
+.mailchimp-section h2 {
+	color: #fff;
+	display: inline;
+	font-size: 33px;
+	font-weight: 500;
+	line-height: 43px;
+	margin-bottom: 10px;
+	margin-top: 0;
+	text-shadow: 1px 1px 4px #000;
+}
+
+.mc-field-group,
+#mc_embed_signup input#mc-embedded-subscribe {
+	display: inline;
+}
+
+#mc_embed_signup input#mce-EMAIL,
+#mc_embed_signup input#mce-FNAME {
+	border: 0;
+	color: #777;
+	font-size: 15px;
+	height: 37px;
+	margin-right: 10px;
+	max-width: 200px;
+	padding-left: 10px;
+}
+
+#mc_embed_signup input#mc-embedded-subscribe {
+	background: #14253e;;
+	border: 3px solid #14253e;;
+	border-radius: 0;
+	color: #f1f1f1;
+	display: inline-block;
+	margin: 20px 0;
+	padding: 8px 35px;
+	transition: all .5s;
+}
+
+#mc_embed_signup input#mc-embedded-subscribe:hover {
+	background: #f1f1f1;
+	border: 3px solid #f1f1f1;
+	color: #14253e;;
+	text-decoration: none;
+}
+*/
+
+/* sm */
+@media (min-width: 768px) {
+	
+}
+
+/* md */
+@media (min-width: 992px) {
+	
+}
+
+/* lg */
+@media (min-width: 1200px) {
+	
+}
+
+/*--------------------------------------------------------------
+4.4 lg
+--------------------------------------------------------------*/
+@media (min-width: 1200px) {
+
+/* this makes the header fixed on desktop only add to 992 or 1200 media query
+.site-header {
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 1030;
+}
+.site-content {
+	padding-top: 184px;
+}
+*/
+
+/* this makes the home sections link to services page without going underneath the fixed header on desktop only 
+h2:before {	
+	content: "";
+	display: block;	
+	height: 184px; 
+	margin-top: -184px;
+	visibility: hidden; 
+}*/
+
+}
