@@ -1,23 +1,10 @@
 <?php
 // Queue parent style followed by child/customized style
-add_action( 'wp_enqueue_scripts', 'yourweblayout_enqueue_styles', PHP_INT_MAX);
-
+add_action( 'wp_enqueue_scripts', 'yourweblayout_enqueue_styles');
 function yourweblayout_enqueue_styles() {
-    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'parent-style' ) );
+    wp_enqueue_style( 'parent-style', get_template_directory_uri().'/style.css' );
 	wp_enqueue_script( 'custom-script', get_stylesheet_directory_uri() . '/js/custom.js', array( 'jquery' ) );
 }
-
-//https://wordpress.stackexchange.com/questions/177852/child-themes-css-priority-problems-without-using-important
-/*function yourweblayout_enqueue_styles() {
-    $parent_style = 'yourweblayout-style'; // This is 'yourweblayout-style' for the Your Web Layout theme.
-    wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'child-style',
-        get_stylesheet_directory_uri() . '/style.css',
-        array( $parent_style ),
-        wp_get_theme()->get('Version')
-    );
-}*/
 
 
 /**
@@ -121,8 +108,8 @@ add_action('acf/init', 'acf_wysiwyg_remove_wpautop');
 
 
 /**
- * Remove hentry on anything other than single Post - prevents structured data errors in Google 
- */
+ * Remove hentry on anything other than single Post - prevents structured data errors in Google: test here: https://www.google.com/webmasters/tools/richsnippets 
+ 
 function remove_hentry( $classes ) {
 	if( !is_single() ) {
 		$classes = array_diff($classes, array('hentry'));
@@ -132,6 +119,7 @@ function remove_hentry( $classes ) {
 	}
 }
 add_filter( 'post_class', 'remove_hentry' );
+*/
 
 
 /* 
