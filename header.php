@@ -87,7 +87,7 @@ need to keep the below jQuery files to keep the functionality for sidebar toggle
 							'depth'             => 3,
 							'container'         => 'div',
 							'container_class'   => 'collapse navbar-collapse',
-							'container_id'      => 'bs-example-navbar-collapse-1',
+							'container_id'      => 'primary-navbar',
 							'menu_class'        => 'navbar-nav mr-auto',
 							'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
 							'walker'            => new WP_Bootstrap_Navwalker(),
@@ -102,11 +102,13 @@ need to keep the below jQuery files to keep the functionality for sidebar toggle
 				<div class="row">
 					<div class="col-sm-12 col-md-3">					
 						<div class="header-scroll-logo">
+							<!-- If no logo uploaded, the Site Title will be pulled in through the dashboard General Settings -->
+							<?php yourweblayout_custom_logo(); ?>
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('header-scroll-logo') ) : endif; ?></a>
 						</div><!-- end header-scroll-logo -->
 					</div><!-- .col -->
 					<div class="col-sm-12 col-md-9">
-						<nav id="site-navigation" class="navbar navbar-default">
+						<nav id="site-navigation-scroll" class="navbar navbar-default">
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-navbar-scroll">
 								<span class="sr-only">Toggle navigation</span>
@@ -121,7 +123,7 @@ need to keep the below jQuery files to keep the functionality for sidebar toggle
 							'depth'             => 3,
 							'container'         => 'div',
 							'container_class'   => 'collapse navbar-collapse',
-							'container_id'      => 'bs-example-navbar-collapse-1-scroll',
+							'container_id'      => 'primary-navbar-scroll',
 							'menu_class'        => 'navbar-nav mr-auto',
 							'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
 							'walker'            => new WP_Bootstrap_Navwalker(),
