@@ -224,6 +224,8 @@ body {
 	font-style: normal;
 	font-weight: 400;
 	line-height: 25px;
+	min-width: 300px;
+	overflow-x: hidden;
 	text-rendering: optimizeLegibility;
 }
 
@@ -242,7 +244,8 @@ h3 {
 	font-family: 'Roboto', sans-serif;
 }
 
-h1 {
+h1,
+h2.post-title {
 	font-size: 30px;
 	line-height: 39px;
 }
@@ -283,7 +286,7 @@ a:focus {
 	background: #14253e;
 	border: 3px solid #14253e;
 	border-radius: 0;
-	/*box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset, 0 1px 0 #990000;*/
+	/*box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset, 0 1px 0 #14253e;*/
 	color: #f1f1f1;
 	display: inline-block;
 	margin: 20px 0;
@@ -293,16 +296,16 @@ a:focus {
 
 .btn-primary:hover,
 .btn-primary:focus {
-	background: #f1f1f1;
-	border: 3px solid #f1f1f1;
+	background: #cacaca;
+	border: 3px solid #cacaca;
 	color: #14253e;
 	text-decoration: none;
 }
 
 .btn-secondary,
 .btn-secondary:visited {
-	background: #f1f1f1;
-	border: 3px solid #f1f1f1;
+	background: #cacaca;
+	border: 3px solid #cacaca;
 	border-radius: 0;
 	color: #14253e;
 	display: inline-block;
@@ -325,7 +328,9 @@ ul {
 
 /* xs */
 @media (min-width: 576px) {
-
+	body { 
+		overflow-x: inherit;
+	}
 }
 
 /* sm */
@@ -380,47 +385,6 @@ body,
 	padding: 10px 0;
 }
 
-/*------------------------------------------------------------
-Scroll Header
--------------------------------------------------------------*/
-.scroll-header {
-	background: #fff;
-}
-
-.scroll-header #site-navigation {
-	background: transparent;
-}
-
-/* keeps styling on top button after it's clicked on */
-.scroll-header {
-	top: 0;
-	color: #191919;
-	display: none;
-	position: fixed;
-	right: 0;
-	width: 100%;
-	z-index: 1;
-}
-
-/*.admin-bar .scroll-header {
-	top: 46px;
-}*/
-
-
-/* sm */
-@media (min-width: 768px) {
-	.admin-bar .scroll-header {
-		top: 46px;
-	}
-}
-
-/* md */
-@media (min-width: 992px) {
-	.admin-bar .scroll-header {
-		top: 32px;
-	}
-}
-
 /*--------------------------------------------------------------
 3.3 Header
 --------------------------------------------------------------*/
@@ -430,6 +394,15 @@ Scroll Header
 	margin-top: 10px;
 	text-align: center;
 }
+
+/* only used for shrinking logo on fixed header scroll
+#logo {
+	width: 100%;
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+
+}*/
 
 .pre-header {
 
@@ -458,6 +431,21 @@ Scroll Header
 
 /* sm */
 @media (min-width: 768px) {
+	/*makes logo shrink on scroll along with the custom.js file - needs to be width of actual logo 
+	#logo img {
+		width: 311px;
+		max-width: 311px;
+		transition: all 0.5s;
+		-webkit-transition: all 0.5s;
+		-moz-transition: all 0.5s;
+	}
+
+	#logo img.shrink {
+		width: 155px;  
+		transition: all 0.5s;
+		-webkit-transition: all 0.5s;
+		-moz-transition: all 0.5s;
+	}*/
 }
 
 /* md */
@@ -474,6 +462,65 @@ Scroll Header
 	
 }
 
+/*------------------------------------------------------------
+Scroll Header
+-------------------------------------------------------------*/
+.scroll-header {
+	background: #f1f1f1;
+}
+
+/* Hides Hamburger menu on scroll on phone view */
+.scroll-header #site-navigation-scroll {
+	background: transparent;
+	display: none;
+}
+
+/*.scroll-header .container {
+	display: none;
+}*/
+
+/* keeps styling on top button after it's clicked on */
+.scroll-header {
+	top: 0;
+	color: #191919;
+	display: none;
+	position: fixed;
+	right: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+/* Need to uncomment this if you want the header to sick on phone size without admin bar covering it up - should hide hamburger menu on scroll as well*/
+/*.admin-bar .scroll-header {
+	top: 46px;
+}*/
+
+
+/* sm */
+@media (min-width: 768px) {
+	.admin-bar .scroll-header {
+		top: 32px;
+	}
+
+	/*.scroll-header .container {
+		display: block;
+	}*/
+	
+	/* need this to display the menu on scroll if hid it on phone view above */
+	.scroll-header #site-navigation-scroll {
+		display: block;
+	}
+
+}
+
+/* md */
+@media (min-width: 992px) {
+	.admin-bar .scroll-header {
+		top: 32px;
+	}
+}
+
+
 /*--------------------------------------------------------------
 3.4 Navigation
 --------------------------------------------------------------*/
@@ -481,23 +528,61 @@ Scroll Header
 .navbar {
 	border: none;
 	border-radius: 0;
+	margin-bottom: 0;
 	min-height: 30px;
 }
 
 .navbar-default .navbar-nav {
-	margin-left: -15px;
-}
-
-.navbar-default .navbar-nav > li {
-	list-style-type: none;
-	padding: 10px 15px;
+	margin: 0;
+	padding-left: 0;
+	transition: color .5s;/* for background hover animation */
 }
 
 .navbar-default .navbar-nav > li > a {
 	color: #14253e;
 	font-size: 16px;
 	padding: 10px 0;
+	position: relative;/* for background hover animation */
 }
+
+
+.navbar-default .navbar-nav > li {/* for background hover animation */
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+	 -webkit-transition: color .5s;
+          transition: color .5s;
+}
+
+
+.navbar-default .navbar-nav > li:before {/* for background hover animation */
+	content: '';
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	background: #0b2043;
+	/*z-index: -1;*/
+	-webkit-transform:scaleX(0);
+      -ms-transform:scaleX(0);
+          transform:scaleX(0);
+	-webkit-transition: -webkit-transform .5s;
+          transition:         transform .5s;
+}
+
+
+.navbar-default .navbar-nav li:hover a {/* for background hover animation if needed */
+	/*color: #fff;*/
+}
+
+.navbar-default .navbar-nav > li:hover:before {/* for background hover animation */
+	-webkit-transform: scaleX(1);
+      -ms-transform: scaleX(1);
+          transform: scaleX(1);
+}
+/* endbackground hover  animation */
+
+
+
 
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus,
@@ -517,7 +602,7 @@ Scroll Header
 	margin-left: 1px;
 }
 
-/* Secondary nav 
+/* Secondary nav */
 #secondary-nav .nav > li > a,
 #secondary-nav .nav > li > a:hover,
 #secondary-nav .nav > li > a:focus,
@@ -528,7 +613,7 @@ Scroll Header
 }
 
 #secondary-nav .nav > li > a {
-	color: #14253e;
+	color: #fff;
 }
 
 #secondary-nav .nav > li > a:hover,
@@ -536,12 +621,13 @@ Scroll Header
 #secondary-nav .nav > li.active > a,
 #secondary-nav .nav > li.active > a:hover,
 #secondary-nav .nav > li.active > a:focus {
-	color: #14253e;
+	color: #cacaca;
+	text-decoration: underline;
 }
 
 .nav-pills > li {
 	float: none;
-}*/
+}
 
 /* sm */
 @media (min-width: 768px) {
@@ -553,7 +639,7 @@ Scroll Header
 		/*float: left;*/
 	}
 	
-	/* next 2 rules center main navigation */
+	/* next 2 rules center main navigation 
 	.navbar .navbar-nav {
 		display: inline-block;
 		float: none;
@@ -561,7 +647,7 @@ Scroll Header
 	
 	.navbar .navbar-collapse {
 		text-align: center;
-	}
+	}*/
 }
 
 /* md */
@@ -663,7 +749,7 @@ Animates the underline of the main navigation items
 	background-color: #14253e;
 	bottom: 0;
 	content: "";
-	height: 1px;
+	height: 2px;
 	left: 0;
 	position: absolute;
 	visibility: hidden;
@@ -697,7 +783,7 @@ Animates the underline of the main navigation items after scrolling down
 	background-color: #14253e;
 	bottom: 0;
 	content: "";
-	height: 1px;
+	height: 2px;
 	left: 0;
 	position: absolute;
 	visibility: hidden;
@@ -712,6 +798,13 @@ Animates the underline of the main navigation items after scrolling down
 	visibility: visible;
 	-webkit-transform: scaleX(1);
 	transform: scaleX(1);
+}
+
+/* sm */
+@media (min-width: 768px) {
+	#primary-navbar-scroll {
+		margin-top: 12px;
+	}
 }
 
 /*-------------------------------------------------------------
@@ -730,8 +823,8 @@ Animates the underline of the main navigation items after scrolling down
 
 /*styles for hamburger toggle */
 .navbar-default .navbar-toggle {
-	background-color: #fff;
-	border: 1px solid #14253e;
+	background-color: transparent;
+	border: 0;
 	float: right;
 	margin-bottom: 8px;
 	margin-right: 15px;
@@ -742,8 +835,8 @@ Animates the underline of the main navigation items after scrolling down
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-	background-color: #14253e;
-	border-color: #fff;
+	background-color: transparent;
+	opacity: 0.6;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -752,11 +845,6 @@ Animates the underline of the main navigation items after scrolling down
 	display: block;
 	height: 2px;
 	width: 22px;
-}
-
-.navbar-default .navbar-toggle:hover .icon-bar, 
-.navbar-default .navbar-toggle:focus .icon-bar {
-	background-color: #fff;
 }
 
 /* ------------------------------------------------------
@@ -838,6 +926,42 @@ Animates the underline of the main navigation items after scrolling down
 	
 }
 
+/* ------------------------------------------------------------------------------
+Animates the underline of links in the page content
+--------------------------------------------------------------------------------*/
+.entry-content a {
+	color: #36558f;/* need for animated underline */
+	font-weight: 500;
+	position: relative;/* need for animated underline */
+}
+
+.entry-content a:hover {
+	color: #36558f;
+	text-decoration: none;/* need for animated underline */
+}
+
+.entry-content a:before {
+	background-color: #36558f;
+	bottom: 0;
+	content: "";
+	height: 1px;
+	left: 0;
+	position: absolute;
+	visibility: visible;
+	width: 100%;
+	-webkit-transform: scaleX(1);
+	transform: scaleX(1);
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+
+.entry-content a:hover:before {
+	visibility: hidden;
+	-webkit-transform: scaleX(0);
+	transform: scaleX(0);
+}
+
+
 /*--------------------------------------------------------------
 3.5 Content
 --------------------------------------------------------------*/
@@ -902,7 +1026,7 @@ Animates the underline of the main navigation items after scrolling down
 .attribution {
 	bottom: 0;
 	margin-top: 0;
-	position: absolute;
+	position: relative;
 	width: 100%;
 }
 
@@ -933,27 +1057,25 @@ Animates the underline of the main navigation items after scrolling down
 	margin-top: 60px;
 }
 
-.fa-youtube,
-.fa-linkedin {
+/*.fa-youtube,
+.fa-facebook-square {
 	color: #fff;
 	font-size: 20px;
 }
 
 .fa-youtube {
 	margin-right: 35px;
-}
-
-.footer-social {
-	margin-bottom: 15px;
-	text-align: right;
-}
+}*/
 
 #footer-navigation {
-	display: none;
+	/*display: none;*/
 }
 
 /* sm */
 @media (min-width: 768px) {
+	.footer-social {
+		
+	}
 
 }
 
@@ -976,6 +1098,10 @@ Animates the underline of the main navigation items after scrolling down
 		left: 0;
 		position: absolute; /* replace with position: fixed; to keep footer fixed to bottom of browser - see footer file too! */
 		width: 100%;
+	}
+	
+	.attribution {
+		position: absolute;
 	}
 }
 
@@ -1186,8 +1312,6 @@ iframe {
 	padding: 0 8px;
 }
 
-
-
 /* https://css-tricks.com/snippets/css/monotone-image-css/ 
 .filtered {
    background: #00c2ff;
@@ -1303,13 +1427,13 @@ ul.color-bull li:hover::before {
 
 /* this styles blockquotes for testimonials - next two rules 
 blockquote {
-	border-bottom: 1px solid #990000;
+	border-bottom: 1px solid #14253e;
 	box-shadow: 3px 1px 5px #aeaeae;
-	border-left: 5px solid #990000;
+	border-left: 5px solid #14253e;
 }
 
 blockquote footer {
-	color: #990000;
+	color: #14253e;
 	font-style: italic;
 } */
 
@@ -1392,7 +1516,7 @@ h2 {
 
 /*--------------------------------------------------------------
 3.9.5 Blog
--------------------------------------------------------------- 
+-------------------------------------------------------------- */
 .entry-meta {
 	margin-bottom: 20px;
 }
@@ -1456,9 +1580,9 @@ a.moretag {
 .search-form {
 	margin-bottom: 20px;
 	margin-top: 20px;
-}*/
+}
 
-/* Alternate search bar for blog(need both rules below) 
+/* Alternate search bar for blog(need both rules below) */
 button.search-submit {
 	background-color: transparent;
 	border: 0 solid #14253e;
@@ -1475,20 +1599,20 @@ input[type="search"] {
 	font-size: 16px;
 	line-height: 29px;
 	padding: 1px 0 1px 5px;
-} */
+} 
 
-/* This places the "Leave a Reply" & "Comments" headings go below next/prev post instead of next to it 
+/* This places the "Leave a Reply" & "Comments" headings go below next/prev post instead of next to it */
 #reply-title,
 #comments {
 	clear: both;
-}*/
+}
 
-/* This places the label for the reply field of the comment box above the box instead of next to it
+/* This places the label for the reply field of the comment box above the box instead of next to it */
 .comment-form-comment label {
 	display: block;
-} */
+} 
 
-/* Style for "Post Comment" button 
+/* Style for "Post Comment" button */
 button, 
 html input[type="button"], 
 input[type="reset"], 
@@ -1509,7 +1633,7 @@ input:hover[type="reset"],
 input:hover[type="submit"] {
 	opacity: 7.0;
 	text-decoration: underline;
-}  */
+}  
 
 /* sm */
 @media (min-width: 768px) {
@@ -1550,7 +1674,7 @@ input:hover[type="submit"] {
 }
 
 h4.pt-cv-title a {
-	color: #990000;
+	color: #14253e;
 	display: inline-block;
 	font-size: 22px;
 	margin-top: 30px;
@@ -1563,8 +1687,8 @@ h4.pt-cv-title a {
 
 .pt-cv-wrapper .btn-success {
 	color: #fff;
-	background-color: #990000;
-	border-color: #990000;
+	background-color: #14253e;
+	border-color: #14253e;
 	border-radius: 3px;
 	font-size: 18px;
 	font-weight: 600;
@@ -1575,8 +1699,8 @@ h4.pt-cv-title a {
 .pt-cv-wrapper .btn-success:hover,
 .pt-cv-wrapper .btn-success:focus {
 	color: #fff;
-	background-color: #990000;
-	border-color: #990000;
+	background-color: #14253e;
+	border-color: #14253e;
 }
 
 .pt-cv-wrapper .btn-success:after {
@@ -1590,7 +1714,7 @@ h4.pt-cv-title a {
 }
 
 .pt-cv-meta-fields a {
-	color: #990000;
+	color: #14253e;
 } */
 
 /* Calendar widget in sidebar 
@@ -1827,6 +1951,45 @@ MailChimp
 /* lg */
 @media (min-width: 1200px) {
 	
+}
+
+/*--------------------------------------------------------------
+Tooltip hover can add anything inside the tooltip on the page
+
+<div class="tooltip">text (or image) here to hover over
+     <span class="tooltiptext">put tooltip content here</span>
+</div>
+--------------------------------------------------------------*/
+/* Tooltip container - surrounds text or image you want hover to affect */
+.tooltip {
+	cursor: default;
+	display: inline-block;
+	opacity: 1;
+	position: relative;
+}
+
+/* Tooltip text - apply this class to a span tag and this will display on hover */
+.tooltip .tooltiptext {
+	background-color: #14253e;
+	border-radius: 0;
+	color: #fff;
+	padding: 10px;
+	position: absolute;/* Position the tooltip text - see examples below! */
+	text-align: left;
+	visibility: hidden;
+	z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+}
+
+.tooltip .tooltiptext {
+	bottom: 100%;
+	left: 50%;
+	margin-left: -125px; /* Use half of the width (120/2 = 60), to center the tooltip */
+	width: 250px;
 }
 
 /*--------------------------------------------------------------
