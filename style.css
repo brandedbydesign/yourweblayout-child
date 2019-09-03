@@ -538,13 +538,16 @@ Scroll Header
 	transition: color .5s;/* for background hover animation */
 }
 
+.navbar-default .navbar-nav > li {
+	margin: 7px 0;
+}
+
 .navbar-default .navbar-nav > li > a {
 	color: #14253e;
 	font-size: 16px;
 	padding: 10px 0;
 	position: relative;/* for background hover animation */
 }
-
 
 .navbar-default .navbar-nav > li {/* for background hover animation */
 	position: relative;
@@ -802,9 +805,7 @@ Animates the underline of the main navigation items after scrolling down
 
 /* sm */
 @media (min-width: 768px) {
-	#primary-navbar-scroll {
-		margin-top: 12px;
-	}
+	
 }
 
 /*-------------------------------------------------------------
@@ -812,7 +813,9 @@ Animates the underline of the main navigation items after scrolling down
 --------------------------------------------------------------*/
 /*edit to length you need to remove vertical scroll on mobile view*/
 .navbar-collapse {
-	max-height: 600px;
+	/*max-height: 600px;*/
+	max-height: 240px;
+	transition: all .9s;
 }
 
 /* removes grey top border on mobile devices */
@@ -1298,6 +1301,7 @@ iframe {
 	height: 40px;
     position: fixed;
     right: 5px;
+	transition: all .9s;
     width: 40px;
     z-index: 1;
 }
