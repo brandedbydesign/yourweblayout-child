@@ -646,6 +646,7 @@ Scroll Header
 	.navbar .navbar-nav {
 		display: inline-block;
 		float: none;
+		margin-bottom: -6px;
 	}
 	
 	.navbar .navbar-collapse {
